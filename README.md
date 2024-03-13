@@ -50,6 +50,7 @@ Kyber is split into multiple separate repositories, each of them dedicated to a 
 - **libkypc**: is an IPC (Inter-Process Communication) system for Kyber, done notably to channel the streams from the video and input servers to the muxing layers.
 - **avserver**: avserver is a push-based GPU-accelerated video server focused on grabbing audio and video from the desktop.
 - **libkynput**: libkyinput is the core of the input server, responsible for both the capture and the injection of any kind of input events, on all platforms. It supports keyboard, mouse gamepads (including rumble), clipboard, USB, etc.
+- **kyaudioreg**: kyaudioreg is the audio component to pace audio packets in Kyber client.
 
 ### Applications
 
