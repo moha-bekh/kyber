@@ -37,29 +37,38 @@ We use Rust everywhere, except VLC and FFmpeg (of course).
 We want the project to be an SDK, because they might be other use cases (drones or audio streaming)
 that we have not thought about yet. The SDK will be projected on other languages.
 
-## Kyber project organization
+## This repository
 
-Kyber is split into multiple separate repositories, each of them dedicated to a specific components.
+This repository is the main Kyber repository, the introduction, aka "Where to start" project, since Kyber
+is split over multiple repositories, for each component of the project.
 
-### Core projects
+It also contains the main documentation of the project.
 
-- **controller**: the controller project is, de facto, the server side control plane of Kyber. It manages the communication initialization, authentication, and the orchestration of all the other elements. It should be the only one maintaining state on the server side.
-- **libclient**: libclient is the client side of the controller. It starts the communication to the server controller, and it knows about the client side capabilities, and is the player (demux, decode and display) the audio/video streams
-- **kymux**: kymux is the muxing part of Kyber. It aggregates all the data (video, audio, input events, file transfer, usb, etc.) and prepares the muxing for mutliple protocols (QUIC, RTP, WebRTC?)
-- **kyproto**: kyproto is THE implementation of a protocol based on QUIC to transport Kyber streams.
-- **libkypc**: is an IPC (Inter-Process Communication) system for Kyber, done notably to channel the streams from the video and input servers to the muxing layers.
-- **avserver**: avserver is a push-based GPU-accelerated video server focused on grabbing audio and video from the desktop.
-- **libkynput**: libkyinput is the core of the input server, responsible for both the capture and the injection of any kind of input events, on all platforms. It supports keyboard, mouse gamepads (including rumble), clipboard, USB, etc.
-- **kyaudioreg**: kyaudioreg is the audio component to pace audio packets in Kyber client.
+## Kyber tree organization
 
-### Applications
+Kyber is split into multiple separate groups of repositories:
+
+- `core`: core projects of Kyber, containing Kyber specific code.
+- `deps`: dependency projects needed by Kyber where some changes need to be applied (forks).
+- `apps`: Kyber applications using Kyber core projects.
+- `ops`: Kyber Operation tools (CI, CD, QoL)
+
+### Core projects (`core` subgroup)
+
+- `kyctl`: Kyber control plane components. They manage the communication initialization, authentication, and the orchestration of the other elements needed by Kyber, both on client and server sides.
+- `kymux`: Kyber data plane components. Any data (video, audio, input events, file transfer, usb, etc.) is transferred through this backend. It provides multiple transport strategies, including a protocol designed to transport Kyber data other the QUIC protocol.
+- `kynput`: Kynput provides the client and server components responsible for the capture and injection of any kind of input events and actions. It manages keyboard events, mouse events, gamepads (including rumble), clipboard, etc.
+- `kymedia`: Multimedia components of Kyber. Provides the features related to audio, video, etc. capture/display, encoding/decoding, muxing/demux, used by the Kyber solution.
+- `kyutil`: Regroups components used by most of the other core components of Kyber (like IPC). 
+
+### Applications (`apps` subgroup)
 
 Kyber is available on most platforms, including browsers.
 
-- **desktop-client**: desktop-client will provide the server and clients for Windows, macOS and Linux distributions.
-- **web-client**: web-client will provide the browser-based client.
-- **android-client**: android-client will provide the Kyber application for Android.
-- **ios-client**: ios-client will provide the Kyber application for iOS and any similar operating system (iPadOS, tvOS, etc.)
+- kyber-desktop: provides the Kyber servers and clients for Windows, macOS and Linux distributions.
+- kyber-web: the browser-based Kyber client.
+- kyber-android: the Kyber application for Android.
+- kyber-ios: the Kyber application for iOS and any similar operating system (iPadOS, tvOS, etc.)
 
 ## License
 
