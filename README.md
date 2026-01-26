@@ -37,14 +37,75 @@ We use Rust everywhere, except VLC and FFmpeg (of course).
 We want the project to be an SDK, because they might be other use cases (drones or audio streaming)
 that we have not thought about yet. The SDK will be projected on other languages.
 
-## This repository
+## Where to start
+
+### Installing
+
+Kyber provides a Windows installer package that you can found in [kyber-installer](https://gitlab.com/kyber.stream/apps/kyber-installer).
+
+It includes the Windows client and server, as well as the kyber web client.
+
+For the other desktop operating systems, use the [Building](#Building) instructions.
+
+### Building
+
+You can build the desktop client and server using the [kyber-desktop](https://gitlab.com/kyber.stream/apps/kyber-desktop) repository instructions.
+
+## Compatibility support
+
+|                   | Client                            | Server                            |
+| ----------------- | --------------------------------- | --------------------------------- |
+| Microsoft Windows | [OK](#Kyber on Microsoft Windows) | [OK](#Kyber on Microsoft Windows) |
+| Apple macOS       | [OK](#Kyber on macOS)             | Published soon!                   |
+| Linux (X11)       | [OK](#Kyber on Linux)             | [OK](#Kyber on Linux)             |
+| Linux (Wayland)   | Published soon!                   | Published soon!                   |
+| Web browser       | [OK](#Kyber in a browser)         | -                                 |
+| Google Android    | Published soon!                   | -                                 |
+| Apple iOS         | Published soon!                   | -                                 |
+
+### Kyber on Microsoft Windows
+
+**Kyber client requirements**:
+
+- Windows 10 or later
+
+**Kyber server requirements**:
+
+- Windows 10 or later
+- nvenc (nVidia GPUs) with up-to-date Nvidia drivers
+- QSV (intel GPUs) support is experimental
+- AMF (AMD GPUs) support is experimental
+
+### Kyber on macOS
+
+**Kyber client requirements**:
+
+- TODO
+
+### Kyber on Linux
+
+- Tested on Debian stable
+- X11/Xorg is fully working with CPU encoding or nVidia GPU encoding (through nvfbc).
+- Other GPU encoding backends will be published soon
+
+### Kyber in a browser
+
+- The Kyber client is fully fonctional on chromium-based browser (google chrome, chromium, etc.)
+- Firefox support is experimental for now.
+- Webkit-based browsers are not fully fonctional due to webkit limitations
+
+## Contributing
+
+The Kyber project is evolving really fast! As a consequence, community development feedback is not opened (yet!).
+
+If you really want to contribute ASAP, please contact us at `contact at kyber dot media`.
+
+## Kyber tree organization
 
 This repository is the main Kyber repository, the introduction, aka "Where to start" project, since Kyber
 is split over multiple repositories, for each component of the project.
 
 It also contains the main documentation of the project.
-
-## Kyber tree organization
 
 Kyber is split into multiple separate groups of repositories:
 
@@ -69,6 +130,14 @@ Kyber is available on most platforms, including browsers.
 - kyber-web: the browser-based Kyber client.
 - kyber-android: the Kyber application for Android.
 - kyber-ios: the Kyber application for iOS and any similar operating system (iPadOS, tvOS, etc.)
+
+## FAQ
+
+You can find more information in the official [FAQ](https://gitlab.com/kyber.stream/kyber/-/wikis/FAQ) page.
+
+## Documentation
+
+You can find more information in the [Kyber wiki](https://gitlab.com/kyber.stream/kyber/-/wikis/home).
 
 ## License
 
