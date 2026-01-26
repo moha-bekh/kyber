@@ -53,15 +53,15 @@ You can build the desktop client and server using the [kyber-desktop](https://gi
 
 ## Compatibility support
 
-|                   | Client                            | Server                            |
-| ----------------- | --------------------------------- | --------------------------------- |
-| Microsoft Windows | [OK](#Kyber on Microsoft Windows) | [OK](#Kyber on Microsoft Windows) |
-| Apple macOS       | [OK](#Kyber on macOS)             | Published soon!                   |
-| Linux (X11)       | [OK](#Kyber on Linux)             | [OK](#Kyber on Linux)             |
-| Linux (Wayland)   | Published soon!                   | Published soon!                   |
-| Web browser       | [OK](#Kyber in a browser)         | -                                 |
-| Google Android    | Published soon!                   | -                                 |
-| Apple iOS         | Published soon!                   | -                                 |
+|                   | Client                              | Server                              |
+| ----------------- | ----------------------------------- | ----------------------------------- |
+| Microsoft Windows | [OK\*](#kyber-on-microsoft-windows) | [OK\*](#kyber-on-microsoft-windows) |
+| Apple macOS       | [OK\*](#kyber-on-macos)             | Published soon!                     |
+| Linux (X11)       | [OK\*](#kyber-on-linux)             | [OK\*](#kyber-on-linux)             |
+| Linux (Wayland)   | Published soon!                     | Published soon!                     |
+| Web browser       | [OK\*](#kyber-in-a-browser)         | -                                   |
+| Google Android    | Published soon!                     | -                                   |
+| Apple iOS         | Published soon!                     | -                                   |
 
 ### Kyber on Microsoft Windows
 
