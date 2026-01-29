@@ -133,7 +133,7 @@ Kyber is available on most platforms, including browsers.
 
 ## FAQ
 
-You can find more information in the official [FAQ](https://gitlab.com/kyber.stream/kyber/-/wikis/FAQ) page.
+You can find more information in the official [FAQ](https://gitlab.com/kyber.stream/kyber/-/wikis/Help/FAQ) page.
 
 ## Documentation
 
