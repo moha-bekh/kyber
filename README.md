@@ -45,7 +45,7 @@ Kyber provides a Windows installer package that you can found in [kyber-installe
 
 It includes the Windows client and server, as well as the kyber web client.
 
-For the other desktop operating systems, use the [Building](#Building) instructions.
+For other desktop operating systems, follow the [Building](#Building) instructions.
 
 ### Building
 
@@ -96,7 +96,7 @@ You can build the desktop client and server using the [kyber-desktop](https://gi
 
 ## Contributing
 
-The Kyber project is evolving really fast! As a consequence, community development feedback is not opened (yet!).
+The Kyber project is evolving really fast! As a consequence, community development feedback is not open (yet!).
 
 If you really want to contribute ASAP, please contact us at `contact at kyber dot media`.
 
