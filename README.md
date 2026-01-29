@@ -80,7 +80,7 @@ You can build the desktop client and server using the [kyber-desktop](https://gi
 
 **Kyber client requirements**:
 
-- TODO
+- The minimum supported version is macOS 10.12 Sierra on Intel (x86) platforms, and macOS 11.0 Big Sur on MX (ARM).
 
 ### Kyber on Linux
 
