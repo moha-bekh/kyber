@@ -20,7 +20,7 @@ Let there be light!
 We want to use VLC and FFmpeg, as much as possible, to be able to reuse the portability
 over all platforms, and not spend too much time on each platforms, to have the video quality
 and video filters of VLC, and be able to have streaming not only on Windows, but on Linux
-and mac too.
+and macOS too.
 
 The whole pipeline from encoder to decoder to display must be pushed-based, which means we need
 to modify VLC and its clock, do a push video server using FFmpeg (libavcodec+libavfilter) and
@@ -73,7 +73,7 @@ You can build the desktop client and server using the [kyber-desktop](https://gi
 
 - Windows 10 or later
 - nvenc (nVidia GPUs) with up-to-date Nvidia drivers
-- QSV (intel GPUs) support is experimental
+- QSV (Intel GPUs) support is experimental
 - AMF (AMD GPUs) support is experimental
 
 ### Kyber on macOS
@@ -85,12 +85,12 @@ You can build the desktop client and server using the [kyber-desktop](https://gi
 ### Kyber on Linux
 
 - Tested on Debian stable
-- X11/Xorg is fully working with CPU encoding or nVidia GPU encoding (through nvfbc).
-- Other GPU encoding backends will be published soon
+- X11/Xorg is fully working with CPU encoding or nVidia GPU encoding. vaapi encoding is available but experimental.
+- Other GPU encoding backends and grabbing stacks will be published soon.
 
 ### Kyber in a browser
 
-- The Kyber client is fully fonctional on chromium-based browser (google chrome, chromium, etc.)
+- The Kyber client is fully fonctional on chromium-based browser (Google Chrome, Chromium, etc.)
 - Firefox support is experimental for now.
 - Webkit-based browsers are not fully fonctional due to webkit limitations
 
@@ -126,10 +126,10 @@ Kyber is split into multiple separate groups of repositories:
 
 Kyber is available on most platforms, including browsers.
 
-- kyber-desktop: provides the Kyber servers and clients for Windows, macOS and Linux distributions.
-- kyber-web: the browser-based Kyber client.
-- kyber-android: the Kyber application for Android.
-- kyber-ios: the Kyber application for iOS and any similar operating system (iPadOS, tvOS, etc.)
+- `kyber-desktop`: provides the Kyber servers and clients for Windows, macOS and Linux distributions.
+- `kyber-web`: the browser-based Kyber client.
+- `kyber-android`: the Kyber application for Android.
+- `kyber-ios`: the Kyber application for iOS and any similar operating system (iPadOS, tvOS, etc.)
 
 ## FAQ
 
