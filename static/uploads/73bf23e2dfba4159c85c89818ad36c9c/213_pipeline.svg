@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1540 340"
+   width="1540"
+   height="340"
+   version="1.1"
+   id="svg18"
+   sodipodi:docname="213_pipeline.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview18"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.60454545"
+     inkscape:cx="781.57895"
+     inkscape:cy="466.46617"
+     inkscape:window-width="1916"
+     inkscape:window-height="2095"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg18" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      text {
+        font-family: sans-serif;
+        fill: white;
+        text-anchor: middle;
+        dominant-baseline: central;
+        font-size: 18px;
+      }
+      .arrow { fill: #999; }
+    </style>
+    <!-- right arrow -->
+    <polygon
+       id="rarr"
+       class="arrow"
+       points="0,-6 20,-6 20,-10 30,0 20,10 20,6 0,6" />
+    <!-- left arrow -->
+    <polygon
+       id="larr"
+       class="arrow"
+       points="30,-6 10,-6 10,-10 0,0 10,10 10,6 30,6" />
+    <!-- double arrow horizontal -->
+    <polygon
+       id="darr"
+       class="arrow"
+       points="10,0 20,-10 20,-6 50,-6 50,-10 60,0 50,10 50,6 20,6 20,10" />
+  </defs>
+  <!-- === LEFT SIDE === -->
+  <!-- Client System box -->
+  <rect
+     x="20"
+     y="55"
+     width="110"
+     height="230"
+     rx="4"
+     fill="#4285F4"
+     id="rect1" />
+  <text
+     x="75"
+     y="155"
+     font-size="16"
+     id="text1">Client</text>
+  <text
+     x="75"
+     y="180"
+     font-size="16"
+     id="text2">System</text>
+  <!-- Arrow: Client System -> Keyboard -->
+  <use
+     href="#rarr"
+     x="145"
+     y="95"
+     id="use2" />
+  <!-- Keyboard box -->
+  <rect
+     x="190"
+     y="55"
+     width="120"
+     height="50"
+     rx="4"
+     fill="#4285F4"
+     id="rect2" />
+  <text
+     x="250"
+     y="80"
+     id="text3">Keyboard</text>
+  <!-- Arrow: Keyboard -> Router -->
+  <use
+     href="#rarr"
+     x="325"
+     y="95"
+     id="use3" />
+  <!-- Arrow: Client System -> Mouse -->
+  <use
+     href="#rarr"
+     x="145"
+     y="170"
+     id="use4" />
+  <!-- Mouse box -->
+  <rect
+     x="190"
+     y="145"
+     width="120"
+     height="50"
+     rx="4"
+     fill="#4285F4"
+     id="rect4" />
+  <text
+     x="250"
+     y="170"
+     id="text4">Mouse</text>
+  <!-- Arrow: Mouse -> Router -->
+  <use
+     href="#rarr"
+     x="325"
+     y="170"
+     id="use5" />
+  <!-- Arrow: Cursor -> Client System (left arrow) -->
+  <use
+     href="#larr"
+     x="145"
+     y="245"
+     id="use6" />
+  <!-- Cursor box -->
+  <rect
+     x="190"
+     y="225"
+     width="120"
+     height="50"
+     rx="4"
+     fill="#4285F4"
+     id="rect6" />
+  <text
+     x="250"
+     y="250"
+     id="text6">Cursor</text>
+  <!-- Arrow: Router -> Cursor (left arrow) -->
+  <use
+     href="#larr"
+     x="325"
+     y="245"
+     id="use7" />
+  <!-- Router (left) -->
+  <rect
+     x="370"
+     y="40"
+     width="80"
+     height="260"
+     rx="4"
+     fill="#F4B400"
+     id="rect7" />
+  <text
+     x="410"
+     y="170"
+     id="text7">Router</text>
+  <!-- Double arrow: Router <-> Mux -->
+  <use
+     href="#darr"
+     x="460"
+     y="170"
+     id="use8" />
+  <!-- Mux (left) -->
+  <rect
+     x="530"
+     y="40"
+     width="60"
+     height="260"
+     rx="4"
+     fill="#F4B400"
+     id="rect8" />
+  <text
+     x="560"
+     y="170"
+     id="text8">Mux</text>
+  <!-- Double arrow: Mux <-> Network -->
+  <use
+     href="#darr"
+     x="600"
+     y="170"
+     id="use9" />
+  <!-- === CENTER: Network === -->
+  <rect
+     x="670"
+     y="142"
+     width="120"
+     height="55"
+     rx="4"
+     fill="#34a898"
+     id="rect9" />
+  <text
+     x="730"
+     y="169"
+     id="text9">Network</text>
+  <!-- Double arrow: Network <-> Mux (right) -->
+  <use
+     href="#darr"
+     x="800"
+     y="170"
+     id="use10" />
+  <!-- === RIGHT SIDE === -->
+  <!-- Mux (right) -->
+  <rect
+     x="870"
+     y="40"
+     width="60"
+     height="260"
+     rx="4"
+     fill="#F4B400"
+     id="rect10" />
+  <text
+     x="900"
+     y="170"
+     id="text10">Mux</text>
+  <!-- Double arrow: Mux <-> Router -->
+  <use
+     href="#darr"
+     x="940"
+     y="170"
+     id="use11" />
+  <!-- Router (right) -->
+  <rect
+     x="1010"
+     y="40"
+     width="80"
+     height="260"
+     rx="4"
+     fill="#F4B400"
+     id="rect11" />
+  <text
+     x="1050"
+     y="170"
+     id="text11">Router</text>
+  <!-- Arrow: Router -> Keyboard (right arrow) -->
+  <use
+     href="#rarr"
+     x="1105"
+     y="95"
+     id="use12" />
+  <!-- Keyboard box (right) -->
+  <rect
+     x="1150"
+     y="55"
+     width="120"
+     height="50"
+     rx="4"
+     fill="#4285F4"
+     id="rect12" />
+  <text
+     x="1210"
+     y="80"
+     id="text12">Keyboard</text>
+  <!-- Arrow: Keyboard -> Server System -->
+  <use
+     href="#rarr"
+     x="1285"
+     y="95"
+     id="use13" />
+  <!-- Arrow: Router -> Mouse -->
+  <use
+     href="#rarr"
+     x="1105"
+     y="170"
+     id="use14" />
+  <!-- Mouse box (right) -->
+  <rect
+     x="1150"
+     y="145"
+     width="120"
+     height="50"
+     rx="4"
+     fill="#4285F4"
+     id="rect14" />
+  <text
+     x="1210"
+     y="170"
+     id="text14">Mouse</text>
+  <!-- Arrow: Mouse -> Server System -->
+  <use
+     href="#rarr"
+     x="1285"
+     y="170"
+     id="use15" />
+  <!-- Arrow: Cursor -> Router (left arrow) -->
+  <use
+     href="#larr"
+     x="1105"
+     y="245"
+     id="use16" />
+  <!-- Cursor box (right) -->
+  <rect
+     x="1150"
+     y="225"
+     width="120"
+     height="50"
+     rx="4"
+     fill="#4285F4"
+     id="rect16" />
+  <text
+     x="1210"
+     y="250"
+     id="text16">Cursor</text>
+  <!-- Arrow: Server System -> Cursor (left arrow) -->
+  <use
+     href="#larr"
+     x="1285"
+     y="245"
+     id="use17" />
+  <!-- Server System box -->
+  <rect
+     x="1330"
+     y="55"
+     width="110"
+     height="230"
+     rx="4"
+     fill="#4285F4"
+     id="rect17" />
+  <text
+     x="1385"
+     y="155"
+     font-size="16"
+     id="text17">Server</text>
+  <text
+     x="1385"
+     y="180"
+     font-size="16"
+     id="text18">System</text>
+</svg>
