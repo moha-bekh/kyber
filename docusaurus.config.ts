@@ -36,7 +36,7 @@ const config: Config = {
       {
         hashed: true,
         indexBlog: false,
-        docsRouteBasePath: '/',
+        docsRouteBasePath: 'docs',
       },
     ],
   ],
@@ -52,7 +52,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          routeBasePath: '/',
+          routeBasePath: 'docs',
         },
         blog: false,
         theme: {
@@ -90,10 +90,10 @@ const config: Config = {
         {
           title: 'Docs',
           items: [
-            { label: 'Getting Started', to: '/GettingStarted/' },
-            { label: 'Architecture', to: '/Architecture/' },
-            { label: 'Developer Starter Kit', to: '/DevStarterKit/' },
-            { label: 'FAQ', to: '/Help/FAQ' },
+            { label: 'Getting Started', to: '/docs/GettingStarted/' },
+            { label: 'Architecture', to: '/docs/Architecture/' },
+            { label: 'Developer Starter Kit', to: '/docs/DevStarterKit/' },
+            { label: 'FAQ', to: '/docs/Help/FAQ' },
           ],
         },
       ],
