@@ -20,6 +20,8 @@ stages:
 
 pages:
   stage: deploy
+  tags:
+    - docker
   script:
     - npm ci --cache .npm --prefer-offline
     - npx docusaurus build
