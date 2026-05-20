@@ -23,10 +23,13 @@ const config: Config = {
     // .md files are parsed as plain CommonMark, .mdx as MDX. Avoids MDX choking on
     // GitHub-style autolinks like <https://…> and ASCII arrows like CPU <-> GPU.
     format: 'detect',
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: 'warn',
     },
   },
+
+  themes: ['@docusaurus/theme-mermaid'],
 
   i18n: {
     defaultLocale: 'en',
