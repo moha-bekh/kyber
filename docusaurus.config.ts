@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Kyber',
   tagline: 'Open source remote streaming — ultra-low latency, high quality, cross-platform',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/kyber-icon-gradient.svg',
 
   future: {
     v4: true,
@@ -68,10 +68,12 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Kyber',
       logo: {
-        alt: 'Kyber Logo',
-        src: 'img/logo.svg',
+        alt: 'Kyber',
+        // Light theme: gradient logo isn't allowed on light backgrounds per the brand
+        // book (it's reserved for Black 1). Use the solid black wordmark there.
+        src: 'img/kyber-wordmark-black.svg',
+        srcDark: 'img/kyber-wordmark-gradient.svg',
       },
       items: [
         {

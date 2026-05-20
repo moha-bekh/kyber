@@ -1,30 +1,62 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Kyber brand theme for Docusaurus.
+ * Palette and rules sourced from Kyber-branding-for-developpers.md (v1.0, Feb. 2026).
+ * Blues are highlight-only; backgrounds use Black 1 / White 1; no pure black or white.
  */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Kyber palette */
+  --kyber-black-1: #000304;
+  --kyber-black-2: #0A0E16;
+  --kyber-white-1: #D4EBEB;
+  --kyber-white-2: #CAE1E1;
+  --kyber-grey:    #98AAAC;
+  --kyber-blue-1:  #88FFFF;
+  --kyber-blue-2:  #2088FF;
+  --kyber-blue-3:  #0458FF;
+
+  /* Light theme — White 1 background, Black 1 text, Blue 3 accent. */
+  --ifm-color-primary:          #0458FF;
+  --ifm-color-primary-dark:     #0450e6;
+  --ifm-color-primary-darker:   #044bd9;
+  --ifm-color-primary-darkest:  #033eb3;
+  --ifm-color-primary-light:    #1d6bff;
+  --ifm-color-primary-lighter:  #2a74ff;
+  --ifm-color-primary-lightest: #5191ff;
+
+  --ifm-background-color:           var(--kyber-white-1);
+  --ifm-background-surface-color:   var(--kyber-white-2);
+  --ifm-color-content:              var(--kyber-black-1);
+  --ifm-color-content-secondary:    var(--kyber-grey);
+  --ifm-navbar-background-color:    var(--kyber-white-1);
+  --ifm-footer-background-color:    var(--kyber-black-1);
+  --ifm-footer-color:               var(--kyber-white-1);
+  --ifm-footer-link-color:          var(--kyber-white-2);
+  --ifm-footer-title-color:         var(--kyber-white-1);
+
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(4, 88, 255, 0.12);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* Dark theme is the canonical Kyber look — Black 1 background, White 1 text. */
+  --ifm-color-primary:          #2088FF;
+  --ifm-color-primary-dark:     #0773f7;
+  --ifm-color-primary-darker:   #066de9;
+  --ifm-color-primary-darkest:  #0559bf;
+  --ifm-color-primary-light:    #3d97ff;
+  --ifm-color-primary-lighter:  #4ba0ff;
+  --ifm-color-primary-lightest: #74b6ff;
+
+  --ifm-background-color:           var(--kyber-black-1);
+  --ifm-background-surface-color:   var(--kyber-black-2);
+  --ifm-color-content:              var(--kyber-white-1);
+  --ifm-color-content-secondary:    var(--kyber-grey);
+  --ifm-navbar-background-color:    var(--kyber-black-1);
+  --ifm-footer-background-color:    var(--kyber-black-2);
+  --ifm-footer-color:               var(--kyber-white-1);
+  --ifm-footer-link-color:          var(--kyber-white-2);
+  --ifm-footer-title-color:         var(--kyber-white-1);
+
+  --docusaurus-highlighted-code-line-bg: rgba(32, 136, 255, 0.18);
 }
