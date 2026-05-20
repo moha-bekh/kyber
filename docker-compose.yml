@@ -1,6 +1,9 @@
 # Run the Kyber documentation site locally:
-#   docker compose up           -> dev server with hot-reload at http://localhost:3000
-#   docker compose run --rm site npm run build   -> produce a static site under ./build
+#   docker compose up                              -> dev server with hot-reload at http://localhost:3000
+#   docker compose run --rm site npm run build     -> produce a static site under ./build
+#   docker compose --profile preview up preview    -> production build served at http://localhost:3001
+#                                                     (use this to test the local search index, which is
+#                                                     only generated during `docusaurus build`)
 services:
   site:
     build: .
@@ -19,6 +22,21 @@ services:
       CHOKIDAR_USEPOLLING: "true"
     stdin_open: true
     tty: true
+
+  # Production-style preview: builds the static site (which generates the search
+  # index) and serves it. Gated behind the "preview" profile so `docker compose up`
+  # alone keeps starting only the dev server.
+  preview:
+    build: .
+    image: kyber-doc:dev
+    profiles: ["preview"]
+    ports:
+      - "3001:3000"
+    volumes:
+      - .:/site
+      - site-node-modules:/site/node_modules
+      - site-docusaurus-cache:/site/.docusaurus
+    command: ["sh", "-c", "npm run build && npm run serve -- --host 0.0.0.0 --no-open"]
 
 volumes:
   site-node-modules:
