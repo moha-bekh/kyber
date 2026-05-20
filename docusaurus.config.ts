@@ -35,8 +35,9 @@ const config: Config = {
       '@easyops-cn/docusaurus-search-local',
       {
         hashed: true,
-        indexBlog: false,
+        indexBlog: true,
         docsRouteBasePath: 'docs',
+        blogRouteBasePath: 'blog',
       },
     ],
   ],
@@ -54,7 +55,22 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: 'docs',
         },
-        blog: false,
+        blog: {
+          routeBasePath: 'blog',
+          showReadingTime: true,
+          blogTitle: 'Kyber Blog',
+          blogDescription: 'News and release notes from the Kyber team',
+          blogSidebarTitle: 'Recent posts',
+          // Many releases on one page would be noisy — show one full post per page.
+          blogSidebarCount: 'ALL',
+          postsPerPage: 10,
+          feedOptions: {
+            type: ['rss', 'atom'],
+            title: 'Kyber Blog',
+          },
+          // Release notes are short — no need for "<!-- truncate -->" on every post.
+          onUntruncatedBlogPosts: 'ignore',
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -82,6 +98,8 @@ const config: Config = {
           position: 'left',
           label: 'Documentation',
         },
+        { to: '/blog/tags/releases', label: 'Releases', position: 'left' },
+        { to: '/blog', label: 'Blog', position: 'left' },
       ],
     },
     footer: {
