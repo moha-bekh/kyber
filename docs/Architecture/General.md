@@ -215,9 +215,13 @@ For this, we identified the following set of criteria:
 
 Some relatively widespread protocols satisfy some of the criteria: notably RTP, which is a lightweight and multi-session protocol, or WebRTC, well handled by firewalls as it is used in most videoconferencing solutions. RTP was indeed our first choice for testing during the feasibility study.
 
-The results of our research show that the QUIC protocol^[https://datatracker.ietf.org/doc/html/rfc9000], proposed by Google engineers, seems to meet most of the project's needs.
+The results of our research show that the QUIC protocol[^rfc9000], proposed by Google engineers, seems to meet most of the project's needs.
 
-It is the basis of the *HTTP* protocol extension in its *HTTP/3* version^[https://en.wikipedia.org/wiki/HTTP/3], replacing notably the combination of TCP (for transport) and TLS (for encryption), on top of a UDP frame.
+[^rfc9000]: https://datatracker.ietf.org/doc/html/rfc9000
+
+It is the basis of the *HTTP* protocol extension in its *HTTP/3* version[^wikihttp3], replacing notably the combination of TCP (for transport) and TLS (for encryption), on top of a UDP frame.
+
+[^wikihttp3]: https://en.wikipedia.org/wiki/HTTP/3
 
 Among the interesting characteristics of this protocol, it natively integrates:
 
