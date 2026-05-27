@@ -1,9 +1,13 @@
 # Kyber Linux Installation Guide (Ubuntu)
 
-This guide explains how to install and configure Kyber on Ubuntu for both capture backends:
+This guide explains how to install and configure Kyber on Ubuntu for the available capture backends:
 
 - **NVFBC + NVENC** (NVIDIA desktop capture under X11)
-- **DRM / KMS** backend
+- **DRM / KMS** backend (non-NVIDIA GPUs with VAAPI)
+- **XCB** (generic X11 fallback, CPU-side RGB capture, works with any encoder)
+- **Wlroots** (wlroots screencopy/dmabuf capture for Wayland, works with any encoder)
+
+See [Kyber Server Configuration](./KyberServerConfig.md#screen-capture-backend-linux) for the full backend reference.
 
 ## Option 1 - NVFBC + NVENC Backend
 

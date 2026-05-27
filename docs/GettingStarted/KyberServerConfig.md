@@ -31,12 +31,23 @@ Video encoding and screen capture settings.
 | `qsv` | Intel CPU w/ integrated graphics | Windows | Intel Quick Sync Video | Yes |
 | `vaapi` | Intel or AMD GPU | Linux | Linux hardware acceleration | Yes |
 
+### Screen Capture Backend (Linux)
+
+The `grab_backend` option selects the screen capture backend on Linux. It has no effect on Windows.
+
+| Value | Display Server | Compatible Encoders | Description |
+|-------|----------------|---------------------|-------------|
+| `nvfbc` | X11 | `nvenc` | NVIDIA Frame Buffer Capture. Requires an NVIDIA GPU under X11 |
+| `drm` | DRM/KMS | `vaapi` | DRM/KMS capture for non-NVIDIA GPUs |
+| `xcb` | X11 | Any | Generic X11 fallback (CPU-side RGB capture) |
+| `wlroots` | Wayland (wlroots) | Any | wlroots screencopy / dmabuf capture |
+
 ### Options
 
 | Option | Default | Description |
 |--------|---------|-------------|
 | `encoder` | `"nvenc"` | Video encoder to use (see table above) |
-| `grab_backend` | `"nvfbc"` | Screen capture backend. Linux only. Requires NVIDIA GPU + X11 + nvenc |
+| `grab_backend` | `"nvfbc"` | Screen capture backend (Linux only — see table above) |
 | `intra_refresh` | `true` | Enable Intra Refresh. Only with Kymux + nvenc |
 | `clock_type` | `"ZeroedOrigin"` | PTS clock for audio/video. Values: `"ZeroedOrigin"`, `"System"` |
 | `minimum_bitrate` | `5000000` | Minimum bitrate in bps (default: 5 Mbps) |
