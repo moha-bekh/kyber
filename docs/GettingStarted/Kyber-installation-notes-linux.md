@@ -68,6 +68,7 @@ libnvidia-fbc.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libnvidia-fbc.so
 In the kyber_config.toml:
 
 ```toml
+[kyavserver]
 encoder = "nvenc"
 grab_backend = "nvfbc"
 ```
@@ -109,6 +110,49 @@ sudo apt install -y mesa-va-drivers libva2 libva-drm2 libva-x11-2 libvdpau1
 In the kyber_config.toml:
 
 ```toml
+[kyavserver]
 encoder = "vaapi"
 grab_backend = "drm"
+```
+
+## Option 3 - XCB Backend
+
+Generic X11 fallback: the frames are captured on the CPU side, so it works with
+any encoder, at a higher CPU cost.
+
+### 1. Make sure you are using an X11 session
+
+```bash
+echo $XDG_SESSION_TYPE
+```
+
+Expected output:
+
+```text
+x11
+```
+
+### 2. Configure Kyber
+
+In the kyber_config.toml:
+
+```toml
+[kyavserver]
+encoder = "x264"
+grab_backend = "xcb"
+```
+
+## Option 4 - Wlroots Backend
+
+wlroots screencopy / dmabuf capture, for Wayland compositors based on wlroots.
+It works with any encoder.
+
+### 1. Configure Kyber
+
+In the kyber_config.toml:
+
+```toml
+[kyavserver]
+encoder = "x264"
+grab_backend = "wlroots"
 ```

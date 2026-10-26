@@ -53,9 +53,9 @@ Here are the steps to uninstall kyber:
 
 The file `kyber_config.toml` allows to configure the listening port.
 
-To do this, uncomment the key `port` in section `[controller]`. Example:
-```
-[controller]
+To do this, uncomment the key `port` in section `[kycontroller]`. Example:
+```toml
+[kycontroller]
 port = 8081
 ```
 

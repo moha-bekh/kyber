@@ -7,17 +7,22 @@ The Kyber server is configured exclusively through the single configuration file
 
 **Warning: most of the configuration file changes require the server to be restarted to take them into account.**
 
+Section names must match exactly. A section with another name (for example the
+`[avserver]` or `[controller]` names used by older versions) is ignored without
+an error, and the server then uses its defaults. Set `KYBER_CONFIG` to use a
+configuration file other than the one next to the executables.
+
 ## Quick Reference
 
 | Section | Purpose |
 |---------|---------|
-| [Video & Audio](#video--audio-avserver) | Encoding and screen capture |
-| [Controller](#controller-controller) | Network, TLS, and authentication |
-| [Input](#input-inputserver) | Keyboard, mouse, clipboard, gamepad |
-| [Virtual Display](#virtual-display-windows_servicekidd) | Virtual monitors (Windows only, driver not yet public) |
+| [Video & Audio](#video--audio-kyavserver) | Encoding and screen capture |
+| [Controller](#controller-kycontroller) | Network, TLS, and authentication |
+| [Input](#input-kynputserver) | Keyboard, mouse, clipboard, gamepad |
+| [Virtual Display](#virtual-display-kyservicekidd) | Virtual monitors (Windows only, driver not yet public) |
 
 
-## Video & Audio `[avserver]`
+## Video & Audio `[kyavserver]`
 
 Video encoding and screen capture settings.
 
@@ -46,6 +51,7 @@ The `grab_backend` option selects the screen capture backend on Linux. It has no
 
 | Option | Default | Description |
 |--------|---------|-------------|
+| `backend` | `"txproto"` | AV engine for capture, encode and mux: `"txproto"` (legacy, kept as a fallback) or `"libavconv"` (new) |
 | `encoder` | `"nvenc"` | Video encoder to use (see table above) |
 | `grab_backend` | `"nvfbc"` | Screen capture backend (Linux only — see table above) |
 | `intra_refresh` | `true` | Enable Intra Refresh. Only with Kymux + nvenc |
@@ -65,18 +71,18 @@ Optional overlay on encoded video. Supports PNG format.
 ### Example
 
 ```toml
-[avserver]
+[kyavserver]
 encoder = "nvenc"
 minimum_bitrate = 8000000
 
-[avserver.watermark]
+[kyavserver.watermark]
 file = "./logo.png"
 x = 1.0
 y = 1.0
 ```
 
 
-## Controller `[controller]`
+## Controller `[kycontroller]`
 
 Network and authentication settings.
 
@@ -90,37 +96,42 @@ Network and authentication settings.
 | `tls_key` | `"kybertest_key.pem"` | TLS private key path |
 | `webtransport_gen_certificate` | `true` | Auto-generate certificate for WebTransport |
 
-### Session
+### Security `[kycontroller.security]`
+
+Browser CSRF protection. The defaults are strict; change them only after
+unexpected unauthorized access errors from a browser client.
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `session.disable_same_site_protection` | `false` | Set `SameSite=none`. **Dev only — disables CSRF protection** |
+| `same_site` | `true` | Apply `SameSite: Strict` to the session cookie. Set to `false` only for cross-site scenarios |
+| `trusted_origins` | `[]` | Origins allowed to send cross-origin requests: a list of origin strings, or `"*"` |
 
-### JWT Authentication
+### JWT Authentication `[kycontroller.auth.jwt]`
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `auth.jwt.algorithm` | `"HS256"` | Signature algorithm: `"HS256"` or `"RS256"` |
-| `auth.jwt.key` | `{ plain = "kyber-authentication-development-key" }` | Signing key (see example) |
+| `enabled` | `true` | Enable/disable the JWT backend |
+| `algorithm` | `"HS256"` | Signature algorithm: `"HS256"` or `"RS256"` |
+| `key` | `{ plain = "kyber-authentication-development-key" }` | Verification key (see example) |
 
 ### Example
 
 ```toml
-[controller]
+[kycontroller]
 port = 443
 tls_cert = "/etc/kyber/server.pem"
 tls_key = "/etc/kyber/server.key"
 
-[controller.session]
-disable_same_site_protection = false
+[kycontroller.security]
+same_site = true
 
-[controller.auth.jwt]
+[kycontroller.auth.jwt]
 algorithm = "RS256"
 key = { file = "/etc/kyber/jwt-public.pem" }
 ```
 
 
-## Input `[inputserver]`
+## Input `[kynputserver]`
 
 Input device handling.
 
@@ -134,13 +145,13 @@ Input device handling.
 ### Example
 
 ```toml
-[inputserver]
+[kynputserver]
 clipboard_allow_copy = true
 clipboard_allow_paste = false
 ```
 
 
-## Virtual Display `[windows_service.kidd]`
+## Virtual Display `[kyservice.kidd]`
 
 Virtual display driver. **Windows only.**
 
@@ -164,20 +175,20 @@ Virtual display driver. **Windows only.**
 
 ### Custom Display Modes
 
-Add custom resolutions using `[windows_service.kidd.extra_modes](../windows_service.kidd.extra_modes.md)` (repeatable):
+Add custom resolutions with `[[kyservice.kidd.extra_modes]]` (repeatable):
 
 ```toml
-[windows_service.kidd]
+[kyservice.kidd]
 enabled = true
 plug_strategy = "minimal_monitor_count"
 monitor_count = 2
 
-[windows_service.kidd.extra_modes](../windows_service.kidd.extra_modes.md)
+[[kyservice.kidd.extra_modes]]
 width = 1920
 height = 800
 vsync = 60
 
-[windows_service.kidd.extra_modes](../windows_service.kidd.extra_modes.md)
+[[kyservice.kidd.extra_modes]]
 width = 2560
 height = 1080
 vsync = 144
