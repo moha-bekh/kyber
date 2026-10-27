@@ -181,7 +181,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ey...
 **Configuration Example:**
 
 ```toml
-[controller.auth.jwt]
+[kycontroller.auth.jwt]
 algorithm = "HS256"
 key = { plain = "kyber-authentication-development-key" }
 ```
